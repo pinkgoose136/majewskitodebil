@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>zadanie</title>
+</head>
+<body>
+	<input type="number" name="liczba1" id="l1"><br>
+	<input type="number" name="liczba2" id="l2"><br>
+	<input type="number" name="liczba3" id="l3"><br>
+	<button id="oblicz" onclick="oblicz()">Oblicz </button>
+	<script>
+		const but = document.getElementById("oblicz")
+		function oblicz(){
+			const l1 = document.getElementById("l1").value
+			const l2 = document.getElementById("l2").value
+			const l3 = document.getElementById("l3").value
+			alert((Number(l1)+Number(l2)+Number(l3))/3)
+		}
+	</script>
+</body>
+</html>
