@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Funkcje</title>
+</head>
+<body>
+	<h1>Przeliczanie ceny</h1>
+	<label>Wprowadź cenę w złotych: </label><input type="number" name="cena" id='cena'>
+	<button onClick="cena()">Przelicz</button>
+	
+	<h3 id="euro"></h3>
+	<h3 id="funt"></h3>
+	<br><hr>
+
+	<h1>Kalkulator BMI</h1>
+	<label>Wprowadź swój wzrost: </label><input type="number" name="wzrost" id='wzrost'><br>
+	<label>Wprowadź swoją wagę: </label><input type="number" name="waga" id='waga'>
+	<button onClick="bmi()">Oblicz</button>
+	
+	<h3 id="bmi"></h3>
+	<br><hr>
+
+	<h1>Sprawdzanie parzystości</h1>
+	<label>Wprowadź liczbę: </label><input type="number" name="liczba" id='liczba'>
+	<button onClick="czy2()">Sprawdź</button>
+	<br><hr>
+
+	<script>
+		function cena(){
+			var cena = document.getElementById('cena').value;
+			euro(cena); funt(cena);
+		};
+		function euro(cena){
+			document.getElementById('euro').innerHTML = "Wartość w euro: " + String(Number(cena) * 4,26);
+		};
+		function funt(cena){
+			document.getElementById('funt').innerHTML = "Wartość w funtach: " + String(Number(cena) * 5,23);
+		};
+	</script>
+
+	<script>
+		function bmi(){
+			var waga = document.getElementById('waga').value; var wzrost = document.getElementById('wzrost').value;
+			var bmi = (Number(Number(waga) / (wzrost * wzrost) * 10000)).toFixed(2)
+
+			var wynik = ""
+
+			if (bmi < 15.99){wynik="wygłodzenie"}
+			else if( bmi > 16 && bmi < 16.99){wynik="wychudzenie"}
+			else if( bmi > 17 && bmi < 18.49){wynik="niedowaga"}
+			else if( bmi > 18.5 && bmi < 24.99){wynik="norma"}
+			else if( bmi > 25 && bmi < 29.99){wynik="nadwaga"}
+			else if( bmi > 30 && bmi < 34.99){wynik="I stopień otyłości"}
+			else if( bmi > 35 && bmi < 39.99){wynik="II stopień otyłości"}
+			else if( bmi < 40){wynik="III stopień otyłości"}
+			else{wynik = ""}
+			document.getElementById('bmi').innerHTML = "Twój BMI wynosi: " + String(bmi) + " (" + wynik + ")";
+		};
+	</script>
+	<script>
+		function czy2(){
+			var liczba = document.getElementById('liczba').value;
+			var odp
+			if (liczba % 2 === 0){odp=1}
+			else{odp=-1}
+
+			if(odp==1){
+				alert("Liczba jest parzysta");
+			}
+			else if(odp==-1){
+				alert("Liczba jest nieparzysta")
+			}
+		};
+	</script>
+</body>
+</html>
