@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Dom weselny</title>
+</head>
+<body>
+	<header>
+		<img src="logo.png" style="height: 70px;">
+		Dom Weselny zorganizuje wesele dla ciebie
+		<img src="logo.png" style="height: 70px;">
+	</header>
+	<div id='panele'>
+		<div id="panel_lewy">
+			<h2>Dom Weselny</h2>
+			<p>ul. Przemysłowa 5</p><p>Kalisz</p><p><a href="logo.png" download>Pobierz logo</a></p>
+		</div>
+		<div id="panel_środkowy">
+			<h2>Oferujemy</h2>
+			<ul>
+				<li>Wesela</li>
+				<li>Bankiety</li>
+				<li>Konferencje</li>
+			</ul>
+		</div>
+		<div id="panel_prawy">
+			<a href="regulamin.txt">czytaj regulamin</a>
+		</div>
+	</div>
+	<div id="panel_dolny">
+		<div style="height: 1px;"></div>
+		<h2>Ile będzie kosztowało moje wesele?</h2>
+
+<label>Podaj liczbę gości</label><input type="number" id="gości">
+<p><label>Wesele z poprawinami?</label><input type="checkbox" id="poprawiny"></p>
+		<button type="submit" onClick="oblicz()">Oblicz koszt</button>
+
+		<p id="wynik"></p>
+	</div>
+	<footer>
+		Stronę internetową opracował: 34575463489782
+	</footer>
+</body>
+
+<script>
+	function oblicz() {
+		let a = document.getElementById("wynik")
+		let gości = document.getElementById("gości").value
+		let poprawiny = document.getElementById("poprawiny")
+		let cena = gości * 100
+		if (poprawiny.checked){
+			cena = cena + cena * 0.3
+		}
+		a.innerHTML = "Koszt Twojego wesela to " + String(cena) + " złotych"
+	}
+</script>
+
+<style>
+	header{
+		background-color: #1C59A7;
+		text-align: center;
+		height: 80px;
+		color: white;
+		font-size: 30px;
+	}
+	#panele{
+		display: flex;
+	}
+	#panel_lewy{
+		background-color: #3A70B5;
+		width: 33%;
+		height: 200px;
+	}
+	#panel_środkowy{
+		background-color: #5A8AC8;
+		width: 33%;
+		height: 200px;
+	}
+	 #panel_prawy{
+		background-color: #86ACDD;
+		width: 34%;
+		height: 200px;
+		text-align: center;
+	}
+	#panel_dolny{
+		background-color: #86ACDD;
+		text-align: center;
+		height: 300px;
+	}
+	footer{
+		background-color: #1C59A7;
+		color: white;
+		height: auto;
+	}
+	#panel_prawy a{
+		background-color: yellow;
+		color: blue;
+		padding: 10px;
+		margin: 10px;
+		display: inline-block;
+	}
+</style>
+</html>
