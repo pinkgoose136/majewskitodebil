@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Kalkulator ceny</title>
+</head>
+<body>
+	<div style="display: flex; height: 100vh; align-items: center; justify-content: center; flex-direction: column;">
+	<div style="background-color: #04b1ff; height: 150px; width: 380px;">
+		<table style="padding: 20px;">
+		<tr>
+			<td>Podaj liczbę dorosłych: </td>
+			<td><input type="number" id="dor"></td>
+		</tr>
+		<tr>
+			<td>Podaj liczbę dzieci: </td>
+			<td><input type="number" id="dz"></td>
+		</tr>
+		<tr>
+			<td>Podaj liczbę dni: </td>
+			<td><input type="number" id="dni"></td>
+		</tr>
+		<tr>
+			<td colspan="2" style="text-align: right;"><button onclick="oblicz()">Oblicz</button></td>
+		</tr>
+	</table>	
+	</div>
+	<div style="background-color: #d900df; height: 120px; width: 380px;">
+		<label id="wynik" style="padding: 20px;"></label>
+	</div>
+	</div>
+
+	<script>
+	function oblicz() {
+		var dor = document.getElementById("dor").value;
+		var dz = document.getElementById("dz").value;
+		var dni = document.getElementById("dni").value;
+		var cena = ((dor * 150) + (dz * 100)*dni);
+		document.getElementById("wynik").innerHTML = "Koszt wynosi: " + cena + "zł";
+	}
+	</script>
+</body>
+</html>
